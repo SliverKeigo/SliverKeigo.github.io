@@ -6,7 +6,7 @@
   <link href="https://sliverkeigo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sliverkeigo.github.io/"/>
-  <updated>2023-10-09T08:36:02.825Z</updated>
+  <updated>2023-10-31T09:06:25.557Z</updated>
   <id>https://sliverkeigo.github.io/</id>
   
   <author>
@@ -17,18 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我们为什么构建 React</title>
+    <link href="https://sliverkeigo.github.io/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html"/>
+    <id>https://sliverkeigo.github.io/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html</id>
+    <published>2023-10-31T09:04:58.000Z</published>
+    <updated>2023-10-31T09:06:25.557Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;现在已经存在很多 JavaScript MVC 框架了，为什么我们还要创建 React 并且你为什么会去用它？&lt;/p&gt;
+&lt;h2 id=&quot;React-并不是一个-MVC-框架&quot;&gt;&lt;a href=&quot;#React-并不是一个-MVC-框架&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://sliverkeigo.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="React" scheme="https://sliverkeigo.github.io/categories/%E5%89%8D%E7%AB%AF/React/"/>
+    
+    
+    <category term="React" scheme="https://sliverkeigo.github.io/tags/React/"/>
+    
+    <category term="转载" scheme="https://sliverkeigo.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World!</title>
+    <link href="https://sliverkeigo.github.io/post/1c291ca3.html"/>
+    <id>https://sliverkeigo.github.io/post/1c291ca3.html</id>
+    <published>2023-10-24T02:21:26.000Z</published>
+    <updated>2023-10-24T02:21:26.565Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>波比日记</title>
     <link href="https://sliverkeigo.github.io/post/%E6%B3%A2%E6%AF%94%E6%97%A5%E8%AE%B0.html"/>
     <id>https://sliverkeigo.github.io/post/%E6%B3%A2%E6%AF%94%E6%97%A5%E8%AE%B0.html</id>
     <published>2023-10-09T07:44:13.000Z</published>
-    <updated>2023-10-09T08:36:02.825Z</updated>
+    <updated>2023-10-30T03:35:28.267Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;波比: 哥，你说的金币是什么啊&lt;br&gt;我: 就是钱&lt;br&gt;波比: 哥，那挣金币很容易吗?&lt;br&gt;我: 容易&lt;br&gt;波比: 那你第一的时候能带我玩吗&lt;br&gt;我: 看心情&lt;br&gt;波比: 噢噢，那哥，你为什么选我啊，是因为我伤害高吗&lt;br&gt;我: 因为你便宜，过渡用&lt;br&gt;波比:</summary>
+    <summary type="html">&lt;p&gt;&lt;strong&gt;波比&lt;/strong&gt;: 哥，你说的金币是什么啊&lt;br&gt;&lt;strong&gt;我&lt;/strong&gt;: 就是钱&lt;br&gt;&lt;strong&gt;波比&lt;/strong&gt;: 哥，那挣金币很容易吗?&lt;br&gt;&lt;strong&gt;我&lt;/strong&gt;:</summary>
         
       
     

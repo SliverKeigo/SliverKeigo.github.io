@@ -4,11 +4,53 @@
   
     
     <entry>
+      <title>我们为什么构建 React</title>
+      <link href="/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html"/>
+      <url>/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html</url>
+      
+        <content type="html"><![CDATA[<p>现在已经存在很多 JavaScript MVC 框架了，为什么我们还要创建 React 并且你为什么会去用它？</p><h2 id="React-并不是一个-MVC-框架"><a href="#React-并不是一个-MVC-框架" class="headerlink" title="React 并不是一个 MVC 框架"></a>React 并不是一个 MVC 框架</h2><p>React 是一个构建合成式用户界面的库。它鼓励创建可重用的 UI 组件，这些组件能跟随数据变化进行展示。</p><h2 id="React-不使用模板"><a href="#React-不使用模板" class="headerlink" title="React 不使用模板"></a>React 不使用模板</h2><p>通常，Web 应用使用模板或 HTML 指令来构建用户界面。这些模板主导了所用你可以用来构建用户界面的抽象集合。</p><p>React 允许通过把用户界面拆分成<strong>组件</strong>来进行构建。这意味着 React 使用了真正的、全功能的编程语言来渲染视图，这样一来相对模板语言具有一定优势，原因如下：</p><ul><li><strong>JavaScript 是一个灵活的，强大的具有抽象能力的编程语言</strong>。这在大型应用中非常重要。</li><li>通过统一你的标记和它所对应的视图逻辑，React 实际上可以使视图<strong>更容易扩展和维护</strong>。</li><li>通过将标记和内容解释成 JavaScript，这里就<strong>没有手动的字符串插入</strong>，因此降低了 XSS 漏洞的暴露面积。</li></ul><p>我们同样提供了 JSX，一个可选的语法扩展，如果你喜欢使用 HTML 的易读性来书写原生 JavaScript。</p><h2 id="即时更新非常简单"><a href="#即时更新非常简单" class="headerlink" title="即时更新非常简单"></a>即时更新非常简单</h2><p>当数据随着时间更新时，React 会跟随着变化。</p><p>在一个传统的 JavaScript 应用中，你需要去监控什么数据发生了改变，然后立刻操作 DOM 节点来确保视图和数据保持一致。即使 AngularJS，也需要通过指令和数据绑定提供一个声明式的接口<a href="https://code.angularjs.org/1.0.8/docs/guide/directive#reasonsbehindthecompilelinkseparation">需要绑定一个函数来手动更新 DOM 节点</a>。</p><p>React 采用不用的方法</p><p>当你的组件第一次初始化，<code>render</code> 方法被调用，生成轻量级表现形式的视图。通过这个表现形式，标签字符串被生成，然后插入到文档中。当数据发生变化时，<code>render</code> 方法再次被调用。为了确保更新的高效性，我们将上次和本次 <code>render</code> 方法的返回值进行比较，然后生成最小的变化来应用到 DOM 结构中。</p><blockquote><p><code>render</code> 方法的返回值既不是字符串也不是 DOM 节点 —— 它是一种对 DOM 结构轻量级的表述方法。</p></blockquote><p>我们把这个过程叫做<strong>和解</strong>。通过<a href="http://jsfiddle.net/2h6th4ju/">这个 jsFiddle</a> 可以查看一个关于<strong>和解</strong>如何进行的实例。</p><p>因为重新渲染是如此的快速（大概 1 毫秒），开发者无需去明确的声明数据绑定。我们已经证实该方法使得构建 APP 变得简单。</p><h2 id="HTML-仅仅只是开始"><a href="#HTML-仅仅只是开始" class="headerlink" title="HTML 仅仅只是开始"></a>HTML 仅仅只是开始</h2><p>因为 React 拥有对文档独有的轻量级表述方式，我可以利用它做一些非常酷的事情：</p><ul><li>Facebook 有许多渲染在 <code>&lt;canvas&gt;</code> 而不是 HTML 上的动态图表。</li><li>Instagram 是一个完全由 React 和 <code>Backbone.Router</code> 构建的 “单页” web 应用。设计者定期使用 JSX 语法贡献 React 代码。</li><li>我们已经有了一个内部项目原型，该项目使用 Objective-C 作为桥接，使得 React 应用可以运行在一个 web 工作环境中，并使用 React 去驱动<strong>原生 IOS 视图</strong>。</li><li>你可以<a href="https://github.com/petehunt/react-server-rendering-example">在服务端</a>运行 React 来做 SEO、性能优化、代码分享等很多灵活性的内容。</li><li>在所有浏览器中（包括 IE 8）具有统一的、标准的、兼容的行为表现，并且自动使用了<a href="http://davidwalsh.name/event-delegate">事件委托</a>。</li></ul><p>请浏览 <a href="https://reactjs.org/">https://reactjs.org</a> 来了解我们构建了哪些东西。我们的文档是面向如何使用框架一步步构建应用的，但如果你对其中的实现原理感兴趣，请<a href="https://reactjs.org/community/support.html">联系</a>我们！</p><p>感谢阅读！</p><h3 id="译者按"><a href="#译者按" class="headerlink" title="译者按"></a>译者按</h3><p>该文翻译自 <a href="https://reactjs.org/blog/all.html">React 官方博客</a>中的 <a href="https://reactjs.org/blog/2013/06/05/why-react.html">Why did we build React?</a>，发布于 2013 年 6 月 5 日，作者为 <a href="https://twitter.com/floydophone">Pete Hunt</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> React </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> 转载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World!</title>
+      <link href="/post/1c291ca3.html"/>
+      <url>/post/1c291ca3.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>波比日记</title>
       <link href="/post/%E6%B3%A2%E6%AF%94%E6%97%A5%E8%AE%B0.html"/>
       <url>/post/%E6%B3%A2%E6%AF%94%E6%97%A5%E8%AE%B0.html</url>
       
-        <content type="html"><![CDATA[<p>波比: 哥，你说的金币是什么啊<br>我: 就是钱<br>波比: 哥，那挣金币很容易吗?<br>我: 容易<br>波比: 那你第一的时候能带我玩吗<br>我: 看心情<br>波比: 噢噢，那哥，你为什么选我啊，是因为我伤害高吗<br>我: 因为你便宜，过渡用<br>波比: 肯定是因为我伤害高<br>我: 因为黑夜里，你能给我带来一些安全感<br>波比很开心: 就知道哥最喜欢我了</p><p><img src="../images/波比日记/dbdfdf1dbf5fef84a67d815a53f0eb88.png" style="zoom: 33%;" /></p><p>波比: 哥，为什么我总是在前面啊，我也想上后面去。<br>我: 你打不到那么远，你就在前面站着吧<br>波比: 好吧，只要哥开心就好</p><p><img src="../images/波比日记/6bce7dc291cd732c95df6ef5ab0cb717.png" style="zoom: 33%;" /></p><p>波比: 哥，我害怕，好像有很多人朝我这来了</p><p><strong>我没说话</strong></p><p>波比: 哥你还在吗，你可以帮帮我吗，在我前面放一个五费大哥替我挡一下</p><p><strong>我没说话</strong></p><p>波比: 对面人好多啊哥，我快坚持不住了，哥你能救救我吗</p><p><strong>波比死了</strong></p><p><img src="../images/波比日记/3fefbba219255796cd7af61355ad7e77.png" style="zoom: 33%;" /></p><p><strong>后来我在波比的日记里面看到</strong><br>我知道哥不喜欢我，我只是个便宜的倒贴货罢了，可是我不敢说，我怕说了哥就不要我了，我既没有三星四费的舒适感，也没有三星五费那么高的伤害，我身上的每一点哥都不喜欢，哥只是想让我去前面等死，给其他大哥们多争取一点时间。但是哥，我也想要你对我好，我也想让你在我前面放一个五费大哥替我抗伤害。可是我知道，我不配…</p>]]></content>
+        <content type="html"><![CDATA[<p><strong>波比</strong>: 哥，你说的金币是什么啊<br><strong>我</strong>: 就是钱<br><strong>波比</strong>: 哥，那挣金币很容易吗?<br><strong>我</strong>: 容易<br><strong>波比</strong>: 那你第一的时候能带我玩吗<br><strong>我</strong>: 看心情<br><strong>波比</strong>: 噢噢，那哥，你为什么选我啊，是因为我伤害高吗<br><strong>我</strong>: 因为你便宜，过渡用<br><strong>波比</strong>: 肯定是因为我伤害高<br><strong>我</strong>: 因为黑夜里，你能给我带来一些安全感<br><strong>波比</strong>很开心: 就知道哥最喜欢我了</p><p><img src="../images/波比日记/dbdfdf1dbf5fef84a67d815a53f0eb88.png" style="zoom: 33%;" /></p><p><strong>波比</strong>: 哥，为什么我总是在前面啊，我也想上后面去。<br><strong>我</strong>:<strong> 你打不到那么远，你就在前面站着吧</strong>波比**: 好吧，只要哥开心就好</p><p><img src="../images/波比日记/6bce7dc291cd732c95df6ef5ab0cb717.png" style="zoom: 33%;" /></p><p><strong>波比</strong>: 哥，我害怕，好像有很多人朝我这来了</p><p><strong>我没说话</strong></p><p><strong>波比</strong>: 哥你还在吗，你可以帮帮我吗，在我前面放一个五费大哥替我挡一下</p><p><strong>我没说话</strong></p><p><strong>波比</strong>: 对面人好多啊哥，我快坚持不住了，哥你能救救我吗</p><p><strong>波比死了</strong></p><p><img src="../images/波比日记/3fefbba219255796cd7af61355ad7e77.png" style="zoom: 33%;" /></p><p><strong>后来我在波比的日记里面看到</strong><br>我知道哥不喜欢我，我只是个便宜的倒贴货罢了，可是我不敢说，我怕说了哥就不要我了，我既没有三星四费的舒适感，也没有三星五费那么高的伤害，我身上的每一点哥都不喜欢，哥只是想让我去前面等死，给其他大哥们多争取一点时间。但是哥，我也想要你对我好，我也想让你在我前面放一个五费大哥替我抗伤害。可是我知道，我不配…</p>]]></content>
       
       
       <categories>
