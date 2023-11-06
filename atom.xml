@@ -6,7 +6,7 @@
   <link href="https://sliverkeigo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sliverkeigo.github.io/"/>
-  <updated>2023-10-31T09:20:58.742Z</updated>
+  <updated>2023-11-06T03:40:56.884Z</updated>
   <id>https://sliverkeigo.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小白也能看懂的～墙内数字难民翻墙小指北~</title>
+    <link href="https://sliverkeigo.github.io/post/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%EF%BD%9E%E5%A2%99%E5%86%85%E6%95%B0%E5%AD%97%E9%9A%BE%E6%B0%91%E7%BF%BB%E5%A2%99%E5%B0%8F%E6%8C%87%E5%8C%97~.html"/>
+    <id>https://sliverkeigo.github.io/post/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%EF%BD%9E%E5%A2%99%E5%86%85%E6%95%B0%E5%AD%97%E9%9A%BE%E6%B0%91%E7%BF%BB%E5%A2%99%E5%B0%8F%E6%8C%87%E5%8C%97~.html</id>
+    <published>2023-11-06T03:23:09.000Z</published>
+    <updated>2023-11-06T03:40:56.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;2023 年 11 月 2 日，知名翻墙软件 Clash For Windows 的开发者 @Fndroid 在 Telegram、X</summary>
+        
+      
+    
+    
+    
+    <category term="Clash" scheme="https://sliverkeigo.github.io/categories/Clash/"/>
+    
+    
+    <category term="转载" scheme="https://sliverkeigo.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+    <category term="Clash" scheme="https://sliverkeigo.github.io/tags/Clash/"/>
+    
+  </entry>
   
   <entry>
     <title>我们为什么构建 React</title>
@@ -38,9 +65,9 @@
     <category term="React" scheme="https://sliverkeigo.github.io/categories/React/"/>
     
     
-    <category term="React" scheme="https://sliverkeigo.github.io/tags/React/"/>
-    
     <category term="转载" scheme="https://sliverkeigo.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+    <category term="React" scheme="https://sliverkeigo.github.io/tags/React/"/>
     
   </entry>
   

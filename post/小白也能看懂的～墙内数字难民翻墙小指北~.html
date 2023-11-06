@@ -102,7 +102,7 @@
   
   <title>
     
-      我们为什么构建 React 
+      小白也能看懂的～墙内数字难民翻墙小指北~ 
       
       
       |
@@ -249,19 +249,19 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">我们为什么构建 React</div>
+      <div class="post-title">小白也能看懂的～墙内数字难民翻墙小指北~</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-10-31 17:20:58
+          2023-11-06 11:40:56
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="分类"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/React/" title="React">
-                    <b>#</b> React
+                  <a href="/categories/Clash/" title="Clash">
+                    <b>#</b> Clash
                   </a>
                 </span>
                 
@@ -277,8 +277,8 @@
                 </span>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/React/" title="React">
-                    #React
+                  <a href="/tags/Clash/" title="Clash">
+                    #Clash
                   </a>
                 </span>
                 
@@ -286,43 +286,116 @@
           
       </div>
       <div class="markdown-body">
-        <p>现在已经存在很多 JavaScript MVC 框架了，为什么我们还要创建 React 并且你为什么会去用它？</p>
-<h2 id="React-并不是一个-MVC-框架"><a href="#React-并不是一个-MVC-框架" class="headerlink" title="React 并不是一个 MVC 框架"></a>React 并不是一个 MVC 框架</h2><p>React 是一个构建合成式用户界面的库。它鼓励创建可重用的 UI 组件，这些组件能跟随数据变化进行展示。</p>
-<h2 id="React-不使用模板"><a href="#React-不使用模板" class="headerlink" title="React 不使用模板"></a>React 不使用模板</h2><p>通常，Web 应用使用模板或 HTML 指令来构建用户界面。这些模板主导了所用你可以用来构建用户界面的抽象集合。</p>
-<p>React 允许通过把用户界面拆分成<strong>组件</strong>来进行构建。这意味着 React 使用了真正的、全功能的编程语言来渲染视图，这样一来相对模板语言具有一定优势，原因如下：</p>
-<ul>
-<li><strong>JavaScript 是一个灵活的，强大的具有抽象能力的编程语言</strong>。这在大型应用中非常重要。</li>
-<li>通过统一你的标记和它所对应的视图逻辑，React 实际上可以使视图<strong>更容易扩展和维护</strong>。</li>
-<li>通过将标记和内容解释成 JavaScript，这里就<strong>没有手动的字符串插入</strong>，因此降低了 XSS 漏洞的暴露面积。</li>
-</ul>
-<p>我们同样提供了 JSX，一个可选的语法扩展，如果你喜欢使用 HTML 的易读性来书写原生 JavaScript。</p>
-<h2 id="即时更新非常简单"><a href="#即时更新非常简单" class="headerlink" title="即时更新非常简单"></a>即时更新非常简单</h2><p>当数据随着时间更新时，React 会跟随着变化。</p>
-<p>在一个传统的 JavaScript 应用中，你需要去监控什么数据发生了改变，然后立刻操作 DOM 节点来确保视图和数据保持一致。即使 AngularJS，也需要通过指令和数据绑定提供一个声明式的接口<a target="_blank" rel="noopener" href="https://code.angularjs.org/1.0.8/docs/guide/directive#reasonsbehindthecompilelinkseparation">需要绑定一个函数来手动更新 DOM 节点</a>。</p>
-<p>React 采用不用的方法</p>
-<p>当你的组件第一次初始化，<code>render</code> 方法被调用，生成轻量级表现形式的视图。通过这个表现形式，标签字符串被生成，然后插入到文档中。当数据发生变化时，<code>render</code> 方法再次被调用。为了确保更新的高效性，我们将上次和本次 <code>render</code> 方法的返回值进行比较，然后生成最小的变化来应用到 DOM 结构中。</p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>2023 年 11 月 2 日，知名翻墙软件 Clash For Windows 的开发者 @Fndroid 在 Telegram、X 平台宣布终止项目更新，并删除了 GitHub 里的整个库。</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/296f5c60cbde1736961a9.png" alt="CFW 原项目 现已富强民主文明和谐"></p>
+<p>而仅仅一天时间不到，Clash Core（各 Clash GUI 客户端的内核）、Clash.Meta、CFA 也相继删库，属于 Clash 的翻墙时代也正式寿终正寝。对于仍然生活在墙内的小白而言，会有多大的影响？今后该如何翻墙？在墙外网络上似乎掀起了一小波恐慌。</p>
+<p>这篇文章的适用对象为普通墙内难民，用语尽最大力度通俗易懂，所用到的工具也是极其简单，不必担心过于复杂而看不懂。</p>
+<p>此文章属于基础，考虑到简单易用，不涉及任何 Linux 相关的内容</p>
+<h3 id="1-1-环境"><a href="#1-1-环境" class="headerlink" title="1.1 环境"></a>1.1 环境</h3><p><strong>安全的上网环境是一切的开端</strong></p>
+<p>考虑到不同的群体，我逐一针对性讲解：</p>
+<p>对于 PC / 笔记本电脑的墙内难民，我依然优先建议使用 Windows。对于大部分人而言，我翻墙，就是看看政治新闻、了解一下墙外，亦或者是看自己喜欢的明星、用不惯墙内的 App，就没有任何必要采取极端的安全保护策略。</p>
+<p>考虑到微软中国存在着特供版 Windows 的情况，只建议在微软官网（非简体中文）下载最新版本的 Windows 11，具体的安装教程可以自行 Google，这里不多描述。</p>
+<p>我个人是将 Windows 安装到 U 盘中使用的，便于存储，也便于销毁</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/1d9184eb28232325c0696.png" alt="微软官网"></p>
+<p><a target="_blank" rel="noopener" href="https://www.microsoft.com/software-download/windows11">https://www.microsoft.com/software-download/windows11</a></p>
+<p>对于 Android 难民，如果你有更换手机的打算，可以考虑购买全新的 Google Pixel 系列或者三星 Galaxy<strong>(非中国大陆发行的)</strong>。</p>
+<p>Google Pixel 中的 Titan M 系列晶片和 Samsung Knox 都可以从硬件层面上抵御外界的破解攻击</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/282aae92d08f4cbbac99e.png" alt="Google Titan "></p>
 <blockquote>
-<p><code>render</code> 方法的返回值既不是字符串也不是 DOM 节点 —— 它是一种对 DOM 结构轻量级的表述方法。</p>
+<p>案例：2019 年 8 月 30 日，香港反修例运动期间。黄之锋被香港警察拘捕，港警未要求他提供任何手机密码，他的 iPhone XR 却遭到了以色列软件 Cellebrite UFED Physical Analyzer 和瑞典的 MSAB XRY 的破解并成功提取到 WhatsAPP 与 Telegram 的对话内容。而同样被拘捕的周庭，他的 Google Pixel 却未能被警方破解成功。</p>
 </blockquote>
-<p>我们把这个过程叫做<strong>和解</strong>。通过<a target="_blank" rel="noopener" href="http://jsfiddle.net/2h6th4ju/">这个 jsFiddle</a> 可以查看一个关于<strong>和解</strong>如何进行的实例。</p>
-<p>因为重新渲染是如此的快速（大概 1 毫秒），开发者无需去明确的声明数据绑定。我们已经证实该方法使得构建 APP 变得简单。</p>
-<h2 id="HTML-仅仅只是开始"><a href="#HTML-仅仅只是开始" class="headerlink" title="HTML 仅仅只是开始"></a>HTML 仅仅只是开始</h2><p>因为 React 拥有对文档独有的轻量级表述方式，我可以利用它做一些非常酷的事情：</p>
-<ul>
-<li>Facebook 有许多渲染在 <code>&lt;canvas&gt;</code> 而不是 HTML 上的动态图表。</li>
-<li>Instagram 是一个完全由 React 和 <code>Backbone.Router</code> 构建的 “单页” web 应用。设计者定期使用 JSX 语法贡献 React 代码。</li>
-<li>我们已经有了一个内部项目原型，该项目使用 Objective-C 作为桥接，使得 React 应用可以运行在一个 web 工作环境中，并使用 React 去驱动<strong>原生 IOS 视图</strong>。</li>
-<li>你可以<a target="_blank" rel="noopener" href="https://github.com/petehunt/react-server-rendering-example">在服务端</a>运行 React 来做 SEO、性能优化、代码分享等很多灵活性的内容。</li>
-<li>在所有浏览器中（包括 IE 8）具有统一的、标准的、兼容的行为表现，并且自动使用了<a target="_blank" rel="noopener" href="http://davidwalsh.name/event-delegate">事件委托</a>。</li>
-</ul>
-<p>请浏览 <a target="_blank" rel="noopener" href="https://reactjs.org/">https://reactjs.org</a> 来了解我们构建了哪些东西。我们的文档是面向如何使用框架一步步构建应用的，但如果你对其中的实现原理感兴趣，请<a target="_blank" rel="noopener" href="https://reactjs.org/community/support.html">联系</a>我们！</p>
-<p>感谢阅读！</p>
-<h3 id="译者按"><a href="#译者按" class="headerlink" title="译者按"></a>译者按</h3><p>该文翻译自 <a target="_blank" rel="noopener" href="https://reactjs.org/blog/all.html">React 官方博客</a>中的 <a target="_blank" rel="noopener" href="https://reactjs.org/blog/2013/06/05/why-react.html">Why did we build React?</a>，发布于 2013 年 6 月 5 日，作者为 <a target="_blank" rel="noopener" href="https://twitter.com/floydophone">Pete Hunt</a>。</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/4f2f890140e9d6fa5bbe4.png" alt="黄之锋的 FB"></p>
+<p>但相比于一个安全无漏洞的手机，在墙内，<strong>App 隔离才是最好的选择</strong>。我更建议墙内外软件分别安装在不同的手机中。如果你目前的确没有足够的经济条件做到换新 / 双机，可以考虑对手机进行刷机。我在之前发过一篇介绍各大类原生 ROM 的推文，如有需求可供参考。<a target="_blank" rel="noopener" href="https://x.com/yura8964/status/1689286347004030977">https://x.com/yura8964/status/1689286347004030977</a></p>
+<p>Google Pixel 用户可以考虑 Graphene OS 获取更高级别的保护，</p>
+<p><strong>ROOT / 刷第三方 ROM / 刷不同国家的 OneUI 版本等举措会熔断你手机中的 Knox 晶片！！</strong>但 SAMSUNG 中国大陆版本的用户可以自行安装香港版本的 OneUI，此操作并不会熔断你的 Knox。</p>
+<p>如果你的三星手机不是中国大陆发行的，不需要进行任何操作。</p>
+<p><strong>如果你是华为用户，我没有任何能够帮助你的建议。果咩纳塞。</strong></p>
+<p>最后就是对于 iOS 难民 ——iOS 相对中国海量手机 UI 来讲，是比较安全的。</p>
+<p>不过有以下几点你要注意：</p>
+<p><strong>云上贵州</strong></p>
+<p>中国大陆的 Apple ID 的 iCloud 数据归于云上贵州所管理。它的运营方是贵州省人民政府。受影响的范围包括照片、文件、通讯录、信息和任何会上传到云端的资料。</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/180b647991eace6991249.png" alt="中国特色"></p>
+<p>当你登录中国区 Apple ID 时，Apple 会告诉你需要遵守中国大陆的 “隐私法规”。(你说法律我都觉得有些好笑)。</p>
+<p>因此，使用 Apple 设备的第一件事情就是登陆境外的 Apple ID (App Store 可登录中国区，不影响 iCloud)</p>
+<p><strong>2. 国行与非国行</strong></p>
+<p>除中华民国国旗 Emoji 外，中国大陆发行的 Apple 设备阉割了 CallKit、Facetime Audio 等 Apple 特有的功能。所以这边不建议购买来自中国大陆的 Apple 设备。</p>
+<ol>
+<li>锁定模式</li>
+</ol>
+<p>2022 年 iOS16 发布后，Apple 在设备中推出了一个软件层面保护手机的功能 —— 锁定模式</p>
+<p>(Lockdown Mode)</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/9c40c211c5a2c3e25d8e2.png" alt="锁定模式"></p>
+<p>它可以 ——</p>
+<p>限制某些 JavaScript 和影片播放系统等常被攻击的网页功能</p>
+<p>封锁大部分的邮件附档类型，只能传送图片</p>
+<p>停用苹果的「共享相簿」功能</p>
+<p>封锁未知用户的来电</p>
+<p>禁止有线连接任何其他装置</p>
+<p>停用公司用来控制、跟踪或管理装置设备的软件</p>
+<p>无法安装任何描述文件</p>
+<p>有信息洁癖者可以考虑启用。</p>
+<p><strong>当然，还是在此建议各位不要在翻墙的手机上插入 + 86 手机卡！只要插入，运营商即可获取到你的手机型号 \IMEI 等大量隐私信息！</strong></p>
+<h3 id="1-2-开始翻墙"><a href="#1-2-开始翻墙" class="headerlink" title="1.2 开始翻墙"></a>1.2 开始翻墙</h3><p>有大量的安全 VPN (如 NordVPN) 因为防火墙的原因在中国大陆无法使用，而野鸡机场也存在风险，在这里我不推荐任何代理网络商，只简单教大家如何选择相对安全的机场运营商：</p>
+<h4 id="1-支持加密货币"><a href="#1-支持加密货币" class="headerlink" title="1. 支持加密货币"></a>1. 支持加密货币</h4><p>使用加密货币 (USDT/BTC) 支付是最安全的购买方式</p>
+<h4 id="2-机场主肉身不在中国"><a href="#2-机场主肉身不在中国" class="headerlink" title="2. 机场主肉身不在中国"></a>2. 机场主肉身不在中国</h4><p>如果机场主被抓咯那你就等死吧</p>
+<h4 id="3-无日志"><a href="#3-无日志" class="headerlink" title="3. 无日志"></a>3. 无日志</h4><p>日志记载着用户的信息，无日志的机场一定程度保障了用户的安全</p>
+<h4 id="4-大法是检验机场的唯一标准"><a href="#4-大法是检验机场的唯一标准" class="headerlink" title="4. 大法是检验机场的唯一标准"></a>4. 大法是检验机场的唯一标准</h4><p>不少机场主为了自己的安全，或者出于政治立场考虑，屏蔽了诸如品葱、大寄原、三退网等轮系网站，更有甚者屏蔽了 VOA、RFA (这种铁定是粉红机场主)。我不是轮友，但法轮功是检验机场的唯一标准，一个能访问政治类网站的机场才是真的做到了最基本的安全，即使不喜欢法轮功。</p>
+<p>接着讲到代理工具。前言降到了 Clash 的陨落，但这并不影响翻墙。Clash 依然可以正常使用，但是后续不会有更新，旧版本的 Clash 也存在着大量的漏洞</p>
+<p>Clash 的分流功能依然是它的主打强项，在这点 V2ray 是无法超越的。(全局 IP 的弊端就在于你的墙内 APP 和墙外 APP 都用了同一个 IP)。</p>
+<p>对于 PC，可以考虑继续使用 Clash Verge</p>
+<p>或者你可以使用 NekoRay / NekoBox For PC</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MatsuriDayo/nekoray/releases">Releases · MatsuriDayo/nekoray (github.com)</a></p>
+<p>对于 Android，除了 Clash, 你可以考虑使用 NekoBox for Android（<a target="_blank" rel="noopener" href="https://github.com/Matsuridayo/NekoBoxForAndroid/releases">Releases · MatsuriDayo/NekoBoxForAndroid (github.com)</a>）/V2RAY NG+Surfshark</p>
+<p>或者 Surfboard</p>
+<p>iOS 用户，性价比买 Shadowrocket，用得好就买 Quantumult X ，富哥上 Surge</p>
+<p>Mac 用户可以继续考虑 ClashX 或者使用昂贵的 Surge</p>
+<h3 id="1-3-进阶-——-个人信息与社会工程学"><a href="#1-3-进阶-——-个人信息与社会工程学" class="headerlink" title="1.3 进阶 —— 个人信息与社会工程学"></a>1.3 进阶 —— 个人信息与社会工程学</h3><p>讲完了翻墙的基本条件，那么恭喜你，你学会了如何正确翻墙</p>
+<p>接下来要讲的是你会进行的下一步，就是注册账号、所面临的 App 等等</p>
+<p>为防止滥用，绝大部分 App 已经开始了手机号验证注册，你需要一个好用的境外手机号 ——</p>
+<p>你可以考虑 Google Voice，它可以应对很多网站，但也有一些网站比如 X (Twitter) 已经将其列入了注册黑名单</p>
+<p>你也可以考虑 SMS-Activate 等一次性接码网站，这个方法使用在 Telegram\Signal 最佳，X 注册后开启双重认证也可以用来过渡</p>
+<p>最后就是境外手机卡。但境外手机卡在中国依然走中国的基站，依然存在高风险，有条件的可以考虑透过 esim 使用在中国收不到讯号但支持 WIFI-CALLING 的运营商号码，例如 T-Mobile 旗下的一些合作套餐 (UltraMobile/Tello)</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/a3d85debe9abb0bdc84c8.png" alt=""></p>
+<p><strong>绝大部分 App 都存在着双重验证，此操作你需要一个智能手机设置一个令牌。强烈建议开启，这会使你的账号更加安全。</strong></p>
+<p>紧接着讲到设置密码，这里我推荐 1Password (收费但简洁) 或者 Bitwarden 自建 (最安全) 生成一个强复杂的密码并储存。——</p>
+<p>你可能要问了，我用日记本写下来，或者放入手机备忘录里不是更好吗？</p>
+<p><strong>不好，因为那是明文的。</strong></p>
+<p>注册完你的账号，你需要设置一个 ID。从这里开始，你要注意 —— 你的 ID、头像风格与语言习惯要与墙内避开，更不要傻乎乎的把自己的微信支付宝收款码挂在自己的主页。</p>
+<p>你的语言习惯影响着你的安全，包括你的作息，这都是辨认你身份的方法。</p>
+<p>比如你今天在中国吃了麦当劳，你发到了墙内，同时发到了墙外，不抓你抓谁？</p>
+<p>你今年要考英语六级，你发在了推特；你买了什么什么东西，你发在了推特；你今晚去过什么地方，你甚至拍照发了推 —— 除非你不涉政，不然就是找死</p>
+<p>你在墙内的语气和墙外一样，标点符号的使用方式也一样，甚至头像都出奇类似，这种情况不抓你抓谁？</p>
+<p>更有甚者，墙内外 ID 头像同名，或者墙内冲塔不满了，截图发到墙外。</p>
+<h4 id="不抓你抓谁？"><a href="#不抓你抓谁？" class="headerlink" title="不抓你抓谁？"></a>不抓你抓谁？</h4><h3 id="1-4-聊天工具"><a href="#1-4-聊天工具" class="headerlink" title="1.4 聊天工具"></a>1.4 聊天工具</h3><p>前情提要：不要和任何人，尤其是肉身在墙内的添加墙内联系方式 ——</p>
+<p>对于你要网络交友，我更推荐以下平台</p>
+<p>普通情况下，可以考虑 Telegram (Telegram 默认不开启端到端加密，需要手动在头像上方开启加密对话 —— 记住，非加密对话是可以被<strong>中国刑侦软件</strong>取证的)</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/95ebbd32919811d2b42b5.jpg" alt="一家公司的刑侦软件"></p>
+<p>高阶层的安全，可以使用 <strong>Signal (本人爱用，也最安全，注册需要用到手机号) /Session（注册简单）/Status (使用者少)，这三款软件目前警察无法取证</strong></p>
+<p>如果你是 iOS 用户，可以开启 iMessage，这是苹果用户独有的聊天功能。默认端到端加密，比 Telegram 更安全。</p>
+<h3 id="1-5-邮箱"><a href="#1-5-邮箱" class="headerlink" title="1.5 邮箱"></a>1.5 邮箱</h3><p>Proton Mail 和 Tutanota 是我最推荐的两家电子邮箱服务商</p>
+<p>如有需求，也可以搭配 Duck 邮箱实现只收不发</p>
+<h3 id="1-6-浏览器"><a href="#1-6-浏览器" class="headerlink" title="1.6 浏览器"></a>1.6 浏览器</h3><p>我不推荐 Google Chrome</p>
+<p>Firefox ESR 是我最推荐的 Windows/Android 浏览器，其次是 Brave 与 Oprea</p>
+<p>请注意，Firefox 存在墙内特供版</p>
+<p><a target="_blank" rel="noopener" href="https://www.mozilla.org/en-US/firefox/enterprise/">https://www.mozilla.org/en-US/firefox/enterprise/</a> 请在此网址下载</p>
+<p>Apple 用户使用 Safari 即可</p>
+<p><strong>但请记住，关闭 “设置 - Safari 浏览器 - 欺骗性网站警告”，因为这项服务是由腾讯提供的（包括香港特别行政区）</strong></p>
+<p>对于翻墙的多数而言，你不需要 Tor 级别的安全程度</p>
+<hr>
+<h3 id="2-1-为什么要说信息保护是在为润做铺垫？"><a href="#2-1-为什么要说信息保护是在为润做铺垫？" class="headerlink" title="2.1 为什么要说信息保护是在为润做铺垫？"></a>2.1 为什么要说信息保护是在为润做铺垫？</h3><p>当代互联网不会存在那么多未解之谜。</p>
+<p>当你连接中国互联网的那一刻起，你便不再有隐私可言。任何极端的信息保护措施，包括使用 Tail\Qubes\Whonix\Parrot OS，也无法保证人类的疏忽大意。</p>
+<p>硬盘加密，有用吗？有</p>
+<p>编程随想，在墙内苟活十余年。所有在中国大陆的持不同政见者能有他这样的防范意识的也寥寥无几。早期小小的 “rxh” 失误，最后失手被捕。他倡导硬盘加密，但被逮捕后警察依然能将电脑中的内容顺利取证。</p>
+<p>很多时候，信息保护是次要的，出卖你的恰巧可能不是软硬件上的安全，而是不经意间的疏忽 —— 冲浪之音的 b23.tv 短链、透露自己的出生年月，这都是一个又一个推友被抓的原因。假设警察抓捕了你，你电脑安全措施做得再好，搞了层层加密，那又有什么用呢？你只会吃更多的刑讯逼供而已。</p>
+<p>所以对于我们，尤其是喜欢在网络上键政的，信息保护就是为了给你安全润出做铺垫。</p>
+<p><img src="/images/loading.gif" data-original="../images/小白也能看懂的～墙内数字难民翻墙小指北/f879918e4c417522f4967.gif" alt="啦啦啦"></p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/post/1c291ca3.html" target="_self">
+              <a href="/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -331,15 +404,15 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-10-31 17:20:58
+              2023-11-06 11:40:56
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="分类"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/React/" title="React">
-                        <b>#</b> React
+                      <a href="/categories/Clash/" title="Clash">
+                        <b>#</b> Clash
                       </a>
                     </span>
                     
@@ -355,8 +428,8 @@
                     </span>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/React/" title="React">
-                        #React
+                      <a href="/tags/Clash/" title="Clash">
+                        #Clash
                       </a>
                     </span>
                     
@@ -364,11 +437,6 @@
               
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/post/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%EF%BD%9E%E5%A2%99%E5%86%85%E6%95%B0%E5%AD%97%E9%9A%BE%E6%B0%91%E7%BF%BB%E5%A2%99%E5%B0%8F%E6%8C%87%E5%8C%97~.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -382,7 +450,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E5%B9%B6%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA-MVC-%E6%A1%86%E6%9E%B6"><span class="toc-text">React 并不是一个 MVC 框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%9D%BF"><span class="toc-text">React 不使用模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B3%E6%97%B6%E6%9B%B4%E6%96%B0%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95"><span class="toc-text">即时更新非常简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%E4%BB%85%E4%BB%85%E5%8F%AA%E6%98%AF%E5%BC%80%E5%A7%8B"><span class="toc-text">HTML 仅仅只是开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%91%E8%80%85%E6%8C%89"><span class="toc-text">译者按</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%8E%AF%E5%A2%83"><span class="toc-text">1.1 环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%BC%80%E5%A7%8B%E7%BF%BB%E5%A2%99"><span class="toc-text">1.2 开始翻墙</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%94%AF%E6%8C%81%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81"><span class="toc-text">1. 支持加密货币</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9C%BA%E5%9C%BA%E4%B8%BB%E8%82%89%E8%BA%AB%E4%B8%8D%E5%9C%A8%E4%B8%AD%E5%9B%BD"><span class="toc-text">2. 机场主肉身不在中国</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%97%A0%E6%97%A5%E5%BF%97"><span class="toc-text">3. 无日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%A4%A7%E6%B3%95%E6%98%AF%E6%A3%80%E9%AA%8C%E6%9C%BA%E5%9C%BA%E7%9A%84%E5%94%AF%E4%B8%80%E6%A0%87%E5%87%86"><span class="toc-text">4. 大法是检验机场的唯一标准</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%BF%9B%E9%98%B6-%E2%80%94%E2%80%94-%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%B8%8E%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6"><span class="toc-text">1.3 进阶 —— 个人信息与社会工程学</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E6%8A%93%E4%BD%A0%E6%8A%93%E8%B0%81%EF%BC%9F"><span class="toc-text">不抓你抓谁？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7"><span class="toc-text">1.4 聊天工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E9%82%AE%E7%AE%B1"><span class="toc-text">1.5 邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">1.6 浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AF%B4%E4%BF%A1%E6%81%AF%E4%BF%9D%E6%8A%A4%E6%98%AF%E5%9C%A8%E4%B8%BA%E6%B6%A6%E5%81%9A%E9%93%BA%E5%9E%AB%EF%BC%9F"><span class="toc-text">2.1 为什么要说信息保护是在为润做铺垫？</span></a>
       
     </div>
   </div>
@@ -724,12 +792,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React + '&url=' + https%3A%2F%2Fsliverkeigo.github.io%2Fpost%2F%25E6%2588%2591%25E4%25BB%25AC%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E6%259E%2584%25E5%25BB%25BA%2520React.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%EF%BD%9E%E5%A2%99%E5%86%85%E6%95%B0%E5%AD%97%E9%9A%BE%E6%B0%91%E7%BF%BB%E5%A2%99%E5%B0%8F%E6%8C%87%E5%8C%97~ + '&url=' + https%3A%2F%2Fsliverkeigo.github.io%2Fpost%2F%25E5%25B0%258F%25E7%2599%25BD%25E4%25B9%259F%25E8%2583%25BD%25E7%259C%258B%25E6%2587%2582%25E7%259A%2584%25EF%25BD%259E%25E5%25A2%2599%25E5%2586%2585%25E6%2595%25B0%25E5%25AD%2597%25E9%259A%25BE%25E6%25B0%2591%25E7%25BF%25BB%25E5%25A2%2599%25E5%25B0%258F%25E6%258C%2587%25E5%258C%2597~.html + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://sliverkeigo.github.io/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://sliverkeigo.github.io/post/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%EF%BD%9E%E5%A2%99%E5%86%85%E6%95%B0%E5%AD%97%E9%9A%BE%E6%B0%91%E7%BF%BB%E5%A2%99%E5%B0%8F%E6%8C%87%E5%8C%97~.html" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
