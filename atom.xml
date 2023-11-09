@@ -6,7 +6,7 @@
   <link href="https://sliverkeigo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sliverkeigo.github.io/"/>
-  <updated>2023-11-06T03:40:56.884Z</updated>
+  <updated>2023-11-09T06:19:14.767Z</updated>
   <id>https://sliverkeigo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>批量修改MySql数据库中字段类型</title>
+    <link href="https://sliverkeigo.github.io/post/82941eb7.html"/>
+    <id>https://sliverkeigo.github.io/post/82941eb7.html</id>
+    <published>2023-11-09T06:12:27.000Z</published>
+    <updated>2023-11-09T06:19:14.767Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天遇到个问题: 数据库中有很多时间字段类型为date, 导致返回给前端时,数据变成&lt;/p&gt;
+&lt;p&gt;2023:10:12:00:00:00 类似的格式,没有具体的时分秒.&lt;/p&gt;
+&lt;p&gt;在百度之后找到了批量修改字段类型的方法&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="MySql" scheme="https://sliverkeigo.github.io/categories/MySql/"/>
+    
+    
+    <category term="MySql" scheme="https://sliverkeigo.github.io/tags/MySql/"/>
+    
+  </entry>
   
   <entry>
     <title>小白也能看懂的～墙内数字难民翻墙小指北~</title>
