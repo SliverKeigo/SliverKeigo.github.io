@@ -253,7 +253,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-11-09 14:22:08
+          2023-11-11 00:23:25
         </span>
         
               <span class="post-categories">
@@ -283,7 +283,7 @@
         <p>今天遇到个问题: 数据库中有很多时间字段类型为date, 导致返回给前端时,数据变成</p>
 <p>2023:10:12:00:00:00 类似的格式,没有具体的时分秒.</p>
 <p>在百度之后找到了批量修改字段类型的方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT</span><br><span class="line">        TABLE_NAME,</span><br><span class="line">        COLUMN_NAME,</span><br><span class="line">        DATA_TYPE,</span><br><span class="line">CONCAT( &#x27;ALTER TABLE &#x27;, TABLE_NAME, &#x27; MODIFY COLUMN &#x27;, COLUMN_NAME, &#x27; datetime;&#x27; )</span><br><span class="line">FROM</span><br><span class="line">information_schema.COLUMNS</span><br><span class="line">        WHERE</span><br><span class="line">TABLE_SCHEMA = &#x27;your table name&#x27;</span><br><span class="line">AND DATA_TYPE = &#x27;date&#x27;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT</span><br><span class="line">        TABLE_NAME,</span><br><span class="line">        COLUMN_NAME,</span><br><span class="line">        DATA_TYPE,</span><br><span class="line">CONCAT( &#x27;ALTER TABLE &#x27;, TABLE_NAME, &#x27; MODIFY COLUMN &#x27;, COLUMN_NAME, &#x27; datetime;&#x27; )</span><br><span class="line">FROM</span><br><span class="line">information_schema.COLUMNS</span><br><span class="line">        WHERE</span><br><span class="line">TABLE_SCHEMA = &#x27;your database name&#x27;</span><br><span class="line">AND DATA_TYPE = &#x27;date&#x27;;</span><br></pre></td></tr></table></figure>
 <p>查询之后,我们只需要把返回的结果中的</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CONCAT( &#x27;ALTER TABLE &#x27;, TABLE_NAME, &#x27; MODIFY COLUMN &#x27;, COLUMN_NAME, &#x27; datetime;&#x27; )  </span><br></pre></td></tr></table></figure>
 <p>这一列中的结果复制后直接执行</p>
@@ -303,7 +303,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-09 14:22:08
+              2023-11-11 00:23:25
             </span>
             
                   <span class="post-categories">
