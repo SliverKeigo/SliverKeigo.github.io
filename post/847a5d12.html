@@ -102,7 +102,7 @@
   
   <title>
     
-      archive_a: 2023 
+      xml文件SQL语句踩坑 
       
       
       |
@@ -204,149 +204,193 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2023</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">xml文件SQL语句踩坑</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-11-21 16:41:31
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="分类"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/MySql/" title="MySql">
+                    <b>#</b> MySql
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/MySql/" title="MySql">
+                    #MySql
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>今天写完新功能后在Navicat上测试了下SQL就提交到了服务器,发布之后发现代码跑不起来😥😥😥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;select id=&quot;getUserGrowthOverview&quot; resultType=&quot;com.createyun.intel.shop.mall.operationsPanel.vo.MerchantUserVo&quot;&gt;</span><br><span class="line">    select</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS todayNewUser,</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time &lt; DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS yesterdayNewUser,</span><br><span class="line">    ROUND(</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) /</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time &lt; DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) - 1,2) AS dayRingRatio,</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_FORMAT(NOW(), &#x27;%Y-%m-01&#x27;), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS monthNewUser</span><br><span class="line">        from mall_user mu</span><br><span class="line">        where</span><br><span class="line">        1=1</span><br><span class="line">        and mch_id = #&#123;query.mchId&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/loading.gif" data-original="../images/xml文件SQL语句踩坑/image-20231121162038533.png" alt=""></p>
+<p><img src="/images/loading.gif" data-original="../images/xml文件SQL语句踩坑/image-20231121162412222.png" alt=""></p>
+<p>糟糕糟糕!😱是我没有见过的异常</p>
+<p>一番折腾之后找到了原因</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;select id=&quot;getUserGrowthOverview&quot; resultType=&quot;com.createyun.intel.shop.mall.operationsPanel.vo.MerchantUserVo&quot;&gt;</span><br><span class="line">    select</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS todayNewUser,</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time  &lt;![CDATA[&lt;]]&gt;  DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS yesterdayNewUser,</span><br><span class="line">    ROUND(todayNewUser / IFNULL(yesterdayNewUser, 1) - 1, 2) AS dayRingRatio,</span><br><span class="line">    COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_FORMAT(NOW(), &#x27;%Y-%m-01&#x27;), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS monthNewUser</span><br><span class="line">        from mall_user mu</span><br><span class="line">        where</span><br><span class="line">        1=1</span><br><span class="line">        and mch_id = #&#123;query.mchId&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>现在对比一下前后两天SQL的差异 😲</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time &lt; DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS yesterdayNewUser,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time  &lt;![CDATA[&lt;]]&gt;  DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS yesterdayNewUser,</span><br></pre></td></tr></table></figure>
+<p>是的,你没猜错.SQL里的 <code>&lt;</code> 被解析成标签了 😐</p>
+<p>所以,我需要使用CDATA包围这个 <code>&lt;</code> ,防止他进行字符转换 😉</p>
+<p>那么CDATA有什么作用呢?🤔</p>
+<p>CDATA的主要作用是:</p>
+<blockquote>
+<ol>
+<li>包含不能由XML标记字符(尖括号、安培桑等)表示的文本数据。</li>
+<li>避免文本数据被XML解析器进行处理。</li>
+<li>允许XML元素包含不能被XML解析的内容。</li>
+</ol>
+</blockquote>
+<p>所以CDATA是XML的一个重要组成部分,用来处理特殊文本内容。不加CDATA可能会导致XML文件解析错误。</p>
+<p>你,明白了吗?</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/post/82941eb7.html" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-11-21 16:41:31
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="分类"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/MySql/" title="MySql">
+                        <b>#</b> MySql
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/MySql/" title="MySql">
+                        #MySql
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="xml文件SQL语句踩坑">
-        <div class="time-m-d">11-21</div>
-        <div class="title">
-          <a href="/post/847a5d12.html">
-            <span>xml文件SQL语句踩坑</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="批量修改MySql数据库中字段类型">
-        <div class="time-m-d">11-09</div>
-        <div class="title">
-          <a href="/post/82941eb7.html">
-            <span>批量修改MySql数据库中字段类型</span>
-          </a>
-        </div>
-      </div>
+
     
-      <div class="post-item" title="小白也能看懂的～墙内数字难民翻墙小指北~">
-        <div class="time-m-d">11-06</div>
-        <div class="title">
-          <a href="/post/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%EF%BD%9E%E5%A2%99%E5%86%85%E6%95%B0%E5%AD%97%E9%9A%BE%E6%B0%91%E7%BF%BB%E5%A2%99%E5%B0%8F%E6%8C%87%E5%8C%97~.html">
-            <span>小白也能看懂的～墙内数字难民翻墙小指北~</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="我们为什么构建 React">
-        <div class="time-m-d">10-31</div>
-        <div class="title">
-          <a href="/post/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E5%BB%BA%20React.html">
-            <span>我们为什么构建 React</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Hello World!">
-        <div class="time-m-d">10-24</div>
-        <div class="title">
-          <a href="/post/1c291ca3.html">
-            <span>Hello World!</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="波比日记">
-        <div class="time-m-d">10-09</div>
-        <div class="title">
-          <a href="/post/%E6%B3%A2%E6%AF%94%E6%97%A5%E8%AE%B0.html">
-            <span>波比日记</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="什么？你给我念了一圈菜谱只为了教我油焖大虾？">
-        <div class="time-m-d">10-07</div>
-        <div class="title">
-          <a href="/post/%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BD%A0%E7%BB%99%E6%88%91%E5%BF%B5%E4%BA%86%E4%B8%80%E5%9C%88%E8%8F%9C%E8%B0%B1%E5%8F%AA%E4%B8%BA%E4%BA%86%E6%95%99%E6%88%91%E6%B2%B9%E7%84%96%E5%A4%A7%E8%99%BE%EF%BC%9F.html">
-            <span>什么？你给我念了一圈菜谱只为了教我油焖大虾？</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="为什么一个字写很多遍、越写就越陌生">
-        <div class="time-m-d">09-28</div>
-        <div class="title">
-          <a href="/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E4%B8%AA%E5%AD%97%E5%86%99%E5%BE%88%E5%A4%9A%E9%81%8D%E3%80%81%E8%B6%8A%E5%86%99%E5%B0%B1%E8%B6%8A%E9%99%8C%E7%94%9F.html">
-            <span>为什么一个字写很多遍、越写就越陌生</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="JDK21 真的来了：虚拟线程正式发布及十多项新特性！">
-        <div class="time-m-d">09-25</div>
-        <div class="title">
-          <a href="/post/JDK21%20%E7%9C%9F%E7%9A%84%E6%9D%A5%E4%BA%86%EF%BC%9A%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%8F%8A%E5%8D%81%E5%A4%9A%E9%A1%B9%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%81.html">
-            <span>JDK21 真的来了：虚拟线程正式发布及十多项新特性！</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="流浪在被资本定义的情感世界里">
-        <div class="time-m-d">09-05</div>
-        <div class="title">
-          <a href="/post/%E6%B5%81%E6%B5%AA%E5%9C%A8%E8%A2%AB%E8%B5%84%E6%9C%AC%E5%AE%9A%E4%B9%89%E7%9A%84%E6%83%85%E6%84%9F%E4%B8%96%E7%95%8C%E9%87%8C.html">
-            <span>流浪在被资本定义的情感世界里</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="大厂都在用的Git管理规范">
-        <div class="time-m-d">09-05</div>
-        <div class="title">
-          <a href="/post/%E5%A4%A7%E5%8E%82%E9%83%BD%E5%9C%A8%E7%94%A8%E7%9A%84Git%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83.html">
-            <span>大厂都在用的Git管理规范</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="MyBatisPlus的join联表查询">
-        <div class="time-m-d">09-04</div>
-        <div class="title">
-          <a href="/post/MyBatisPlus%E7%9A%84join%E8%81%94%E8%A1%A8%E6%9F%A5%E8%AF%A2.html">
-            <span>MyBatisPlus的join联表查询</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="Git 速查表：必备的 12 个 Git 命令">
-        <div class="time-m-d">09-03</div>
-        <div class="title">
-          <a href="/post/Git%20%E9%80%9F%E6%9F%A5%E8%A1%A8%EF%BC%9A%E5%BF%85%E5%A4%87%E7%9A%84%2012%20%E4%B8%AA%20Git%20%E5%91%BD%E4%BB%A4.html">
-            <span>Git 速查表：必备的 12 个 Git 命令</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="今日随想">
-        <div class="time-m-d">04-23</div>
-        <div class="title">
-          <a href="/post/%E4%BB%8A%E6%97%A5%E9%9A%8F%E6%83%B3.html">
-            <span>今日随想</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+  
+    <script async type="text/javascript" src="/plugins/valine.min.js" onload="loadValineSuc(this)"></script>
+  
+
+  <div id="vcomments"></div>
+
+  <script>
+    function loadValineSuc() {
+      new Valine({
+        el: '#vcomments',
+        appId: 'ZHp4Vl1HknBn5gSgzVcSjjeY-MdYXbMMI',
+        appKey: 'GvZVpSJquteM0VVwoRUddT09',
+        placeholder: 'Just Go Go😊!',
+        avatar: 'https://valine.js.org/#/avatar',
+        lang: 'zh-CN'
+      })
+    }
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -632,6 +676,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + xml%E6%96%87%E4%BB%B6SQL%E8%AF%AD%E5%8F%A5%E8%B8%A9%E5%9D%91 + '&url=' + https%3A%2F%2Fsliverkeigo.github.io%2Fpost%2F847a5d12.html + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://sliverkeigo.github.io/post/847a5d12.html" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

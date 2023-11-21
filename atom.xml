@@ -6,7 +6,7 @@
   <link href="https://sliverkeigo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sliverkeigo.github.io/"/>
-  <updated>2023-11-10T16:23:25.270Z</updated>
+  <updated>2023-11-21T08:41:31.831Z</updated>
   <id>https://sliverkeigo.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>xml文件SQL语句踩坑</title>
+    <link href="https://sliverkeigo.github.io/post/847a5d12.html"/>
+    <id>https://sliverkeigo.github.io/post/847a5d12.html</id>
+    <published>2023-11-21T08:26:32.000Z</published>
+    <updated>2023-11-21T08:41:31.831Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天写完新功能后在Navicat上测试了下SQL就提交到了服务器,发布之后发现代码跑不起来😥😥😥&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="MySql" scheme="https://sliverkeigo.github.io/categories/MySql/"/>
+    
+    
+    <category term="MySql" scheme="https://sliverkeigo.github.io/tags/MySql/"/>
+    
+  </entry>
   
   <entry>
     <title>批量修改MySql数据库中字段类型</title>
