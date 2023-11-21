@@ -253,7 +253,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-11-21 16:44:12
+          2023-11-21 16:50:53
         </span>
         
               <span class="post-categories">
@@ -290,7 +290,7 @@
 <p>现在对比一下前后两天SQL的差异 😲</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time &lt; DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS yesterdayNewUser,</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">COUNT(IF(mu.register_time &gt;= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY), &#x27;%Y-%m-%d 00:00:00&#x27;) AND mu.register_time  &lt;![CDATA[&lt;]]&gt;  DATE_FORMAT(NOW(), &#x27;%Y-%m-%d 00:00:00&#x27;), mu.id, NULL)) AS yesterdayNewUser,</span><br></pre></td></tr></table></figure>
-<p>是的,你没猜错.SQL里的 <code>&lt;</code> 被解析成标签了 😐</p>
+<p>是的,你没猜错.SQL里的 <code>&lt;</code>被解析成标签了 😐</p>
 <p>所以,我需要使用CDATA包围这个 <code>&lt;</code> ,防止他进行字符转换 😉</p>
 <p>那么CDATA有什么作用呢?🤔</p>
 <p>CDATA的主要作用是:</p>
@@ -318,7 +318,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-21 16:44:12
+              2023-11-21 16:50:53
             </span>
             
                   <span class="post-categories">
